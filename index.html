@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>Maturidade, Simplicidade, Flexibilidade: comparando Puppet, Ansible, e Salt</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Uma apresentação e comparação de Puppet, Ansible e Salt">
+		<meta name="author" content="Diego Morales">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -41,339 +41,393 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+				<h1>Puppet, Ansible, Salt</h1>
+				<h4>Maturidade, Simplicidade e Flexibilidade</h4>
+				<br/>
+					<p>Diego Morales</p>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>
+						&nbsp;
+						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
+						<a href="mailto:dgmorales@gmail.com" style="vertical-align:middle;">dgmorales@gmail.com</a>
+						&nbsp;
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" /> 
+						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a> 
+						</small>
 					</p>
-				</section>
-
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					<p>
+					Boa noite, galera. Meu nome é Diego Morales. Eu sou um
+					sysadmin já há muitos anos, mais de 15, apesar dessa
+					minha cara de guri... Trabalho em uma empresa chamada
+					Propus, que presta serviços de infraestrutura de TI e
+					de BigData e NoSQL.
+
+					Eu estava n último encontro DevOps lá na Cinelândia, e
+					se comentou lá sobre um interesse de termos palestras
+					comparando algumas das muitas ferramentas desse mundo
+					DevOps.
+
+					Eu depois conversei com o Stefan e o Luiz, propondo
+					essa palestra aqui. Eu já uso bastante puppet há alguns
+					anos, tenho usado cada vez mais ansible, e também já
+					investiguei muito o salt, para avaliar o que era melhor
+					para o meu ambiente.
+
+					Mas eu não me considero expert em nenhuma delas, talvez
+					nem no Puppet até, e eu acho que um potencial
+					interessante que a gente tem aqui é vocês trazerem
+					também a experiência e a visão de vocês, apesar do
+					nosso tempo que pode ficar apertado ...
+
+					Então, para termos uma noção.... quem aí usa:
+
+					Puppet?
+					Ansible?
+					Salt?
+					
+					</p>
 					</aside>
 				</section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
 
 				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
+				<h2>O que vem por aí</h2>
+				<br/>
+				<ol>
+						<li>Quem são, e o cenário geral de <i>configuration management</i>.</li>
+						<li>Arquitetura básica de cada um</li>
+						<li>Pagando ...</li>
+						<li>... e não pagando</li>
+						<li>Show me the code</li>
+						<li>Comunidade e Documentação</li>
+				</ol>
+				<br/>
+				<br/>
+				<p>Online: <a href="http://dgmorales.info/cfgmgmt">http://dgmorales.info/cfgmgmt-pas</a></>
+				<aside class="notes">
+				<p>
+					A proposta aqui não é fácil. São 3 ferramentas
+					poderosas, cada uma certamente precisa de uma palestra
+					inteira ou mais para ser devidamente apresentada, então
+					eu tive que escolher e limitar os assuntos para dar
+					tempo.
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+					Então vamos fazer assim: eu vou direto ao ponto, o
+					ritmo vai ser um pouco acelerado, mas vocês fiquem 100%
+					à vontade de interromper para perguntar ou acrescentar
+					algo, e eu vou ficar 100% à vontade de dizer "vamos
+					guardar isso para o final, se der tempo?"
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
+					blz? Vambora então
+				</p>
+			</aside>
+		</section>
 
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
+		<section>
+			<h2>Config Management</h2>
+			&nbsp; &nbsp;
+			<a href="http://www.puppetlabs.com/"><img src="images/puppet-labs.png"/ width="280" style="border:0;"></a>
+			&nbsp; &nbsp;
+			<a href="http://www.ansibleworks.com/"><img src="images/ansible.png"/ width="200" style="border:0;"></a>
+			&nbsp; &nbsp;
+			<a href="http://saltstack.com/"><img src="images/SaltStack.png"/ width="320" style="border:0;"></a>
+			<br/>
+			<br/>
+			<a href="http://www.opscode.com/chef"><img src="images/logo-chef.png" width="150" style="border:0;"/></a>
+			&nbsp; &nbsp;
+			<a href="http://www.cfengine.com"><img src="images/logo-cfengine.png"
+				width="280" style="border:0;"/></a>
+			<aside class="notes">
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
+			<p>
+			Bom, acho que todo mundo aqui sabe do que essas ferramentas
+			tratam. São ferramentas de gerência de configuração,
+			infraestrutura como código: elas me permitem descrever em
+			código a configuração dos meus servidores, da minha nuvem, e me
+			dá vários meios de aplicá-las. E assim eu posso versionar esse
+			código, testar, documentar, etc.
+
+			E aí vem uma questão bem básica: elas são concorrentes ou
+			complementares?
+
+			Há controvérsias. O puppet e o ansible, por exemplo, são
+			frequentemente considerados complementares, e certamente podem
+			ser usados dessa forma. O Guto Carvalho e o Miguel da Instruct,
+			por exemplo, que são as principais referências de puppet no
+			brasil, consideram que eles praticamente não tem nada a ver um
+			com o outro.
+
+			Eu respeitosamente discordo. Os diferentes focos e abordagens
+			de configuration managemente formam um espectro, puppet e
+			ansible nos extremos, salt buscando tudo. Todos eles me parecem
+			eventualmente querer alcançar tudo, invadindo aos poucos os
+			espaços dominados por outros. Isso vai ficar mais claro ao
+			longo do nosso papo.</p>
+
+			<p>
+			Os principais players desse mercado são esses 4: Puppet,
+			Ansible, Salt e Chef. Com uma menção honrosa para o cfengine,
+			que é o pai de todos, muito mais antigo, mais complexo, e ainda
+			é utilizado em ambientes gigantes e extremamente complexos.
+
+			E o Chef? Quando eu comecei isso, resolvi tirar ele dos meus
+			estudos. Na minha análise um pouco superficial, ele é
+			razoavelmente parecido com o Puppet, mas um pouco mais
+			complexo, na arquitetura, nos componentes, e é um tanto
+			atrelado ao ruby ...
+			</p>/
+
+			</aside>
+		</section>
+
+		<section>
+		<h3>Em uma palavra ...</h3>
+		<br/>
+		<p>Puppet: &nbsp; <b>Maturidade</b></p>
+		<p>Ansible: &nbsp; <b>Simplicidade</b></p>
+		<p>Salt: &nbsp; <b>Flexibilidade</b></p>
+		<aside class="notes">
+		</aside>
+		</section>
+
+		<section>
+			<section>
+				<h2>Puppet & PuppetLabs</h2>
+				<aside class="notes">
+				Vamos apresentar um básico, mas vamos passar rápido isso aqui.
+					O Puppet foi criado...
+				</aside>
+			</section>
+
+			<section>
+				<ul>
+					<li>Pull. Masterless (pull rodando local) vs Master.</li>
+					<li>Citar Orchestrator no Enterprise</li>
+					<li>Citar meu bacalhau medonho</li>
+					<li>PuppetDB</li>
+					<li>Mcollective</li>
+					<li>PuppetServer</li>
+					<li>DSL + templates ERB</li>
+					<li>Feito em ruby / nodejs / java ... DSL torna isso geralmente irrelevante.</li>
+					<li>Auth/Crypto: CA</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Puppet Enterprise</h3>
+				<ul>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Open Source: Dashboards e mais ... </h3>
+				<ul>
+					<li>Puppet Explorer (Spotify)</li>
+					<li>Puppetboard</li>
+					<li>Puppet Dashboard</li>
+					<li>Foreman</li>
+					<li>PCP</li>
+				</ul>
+			</section>
+		</section>
+
+		<section>
+
+			<section>
+			<h2>Ansible (==> RedHat)</h2>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+				<ul>
+					<li>Push com SSH (Simplicidade!). Pull rodando local.</li>
+					<li>Orquestração em várias máquinas. Strategies?</li>
+        				<li>YAML + templates jinja2</li>
+        				<li>Python</li>
+        				<li>Auth/Crypto: by SSH</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Ansible Tower</h3>
+				<ul>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Outros projetos open source?</h3>
+				<ul>
+        				<li>Usar o Rundeck como frontend.</li>
+				</ul>
+			</section>
+
+		</section>
+
+		<section>
+
+			<section>
+			<h2>SaltStack</h2>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+				<ul>
+        				<li>Push com SSH. Push/Pull com ZeroMQ , Pull rodando local. (Flexibilidade!)</li>
+        				<li>Python</li>
+        				<li>YAML + templates jinja2, porém o próprio YAML pode ser "templated"</li>
+        				<li>Auth/Crypto: ZeroMQ crypto?, e by SSH</li>
+				</ul>
+			<aside class="notes">
+				Falar da Performance deles ....
+			</aside>
+			</section>
+
+			<section>
+				<h3>SaltStack Enterprise</h3>
+				<ul>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Saltweb</h3>
+				<ul>
+				</ul>
+			</section>
+		</section>
+
+
+		<section>
+			<section>
+			<h2>Show me the code!</h2>
+			<p>Package, File, Service.</p>
+			<aside class="notes">
+
+			Puppet: DSL, módulos, classes, manifestos, hiera, ENC, roles and profiles (?). Muitos avanços no Puppet 4 (loops, etc)
+
+			Ansible: Inventário (dinâmicos tb), YAML, roles, variáveis de grupos e hosts
+			
+			Salt: Pillars and ?, States e etc.
+			</aside>
+			</section>
+
+			<section>
+			<h3>Puppet</h3>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+			<h3>Ansible</h3>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+			<h3>Salt</h3>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+			<h2>Loops</h2>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+			<h3>Puppet</h3>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+			<h3>Ansible</h3>
+			<aside class="notes">
+			</aside>
+			</section>
+
+			<section>
+			<h3>Salt</h3>
+			<aside class="notes">
+			</aside>
+			</section>
+		</section>
+
+		<section>
+			<h3>Comunidade</h3>
+			<br/>
+			<p>Puppet: &nbsp; Forge, grupo no telegram, meetups não muito bem sucedidos</p>
+			<p>Ansible: &nbsp; Galaxy, algum grupo?</p>
+			<p>Salt: &nbsp; ...., algo no brasil?</p>
+			<aside class="notes">
+				Figuras?
+    				Salt e Ansible são mais batteries included
+    				Lista de módulos incluídos Salt e Ansible.
+    				Receptividade de fixes das comunidades?
+			</aside>
+		</section>
+
+		<section>
+			<h3>Documentação</h3>
+			<br/>
+			<p>Puppet: &nbsp; Excelente, madura e completa + Learning VM</p>
+			<p>Ansible: &nbsp; Muito simples, mas não tão boa em referência </p>
+			<p>Salt: &nbsp; confusa pacas, começando a melhorar</p>
+			<aside class="notes">
+				Figuras?
+			</aside>
+		</section>
+
+		<section>
+			<h3>Chegando ao fim ...</h3>
+
+			<li>Voltando: maturidade, flexibilidade, simplicidade.</li>
+			<li>Perae, e o Docker nisso tudo?</li>
+			<li>Meus testes e post no meu blog</li>
+			<li>Followup da palestra?</li>
+
+			<aside class="notes">
+			</aside>
+		</section>
+		<section>
+			<h3>Faltou muito</h3>
+
+			<li>Mais sobre hiera e variáveis</li>
+			<li>Hiera crypt, vault</li>
+			<li>...</li>
+
+			<aside class="notes">
+			</aside>
+		</section>
+
+		<section>
+			<h2>Por hoje é só pessoal!</h2>
+			<br/>
+			<h3>Contato</h3>
+			<br/>
+			<p>
+			Diego Morales 
+			<br/>
+			<small>
+			<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
+			<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a> 
+			&nbsp;
+			<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" /> 
+			<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a> 
+			</small>
+			</p>
+			<br/>
+			<p>Slides: &nbsp; <a href="http://dgmorales.info/sysadmin">http://dgmorales.info/sysadmin</a></p>
+			<p>
+			Blog: <i>Do, Automate, Repeat</i> &nbsp; <a
+				href="http://doauto.wordpress.com">http://doauto.wordpress.com</a>
+			</p>
+			<br/>
+		</section>
+
 
 			</div>
 
