@@ -194,41 +194,81 @@
 		<section>
 			<section>
 				<h2>Puppet & PuppetLabs</h2>
+				<br/>
+				<p>Criado em 2005, por um sysadmin, Luke Kanies.</p>
+				<div style="vertical-align:middle;">
+				<img src="images/puppet-users/github_color.png"/ style="border:0;">
+				<img src="images/puppet-users/nasa_color.png"/ style="border:0;">
+				<img src="images/puppet-users/spotifty_color.png"/ style="border:0;">
+				<img src="images/puppet-users/nestle_color.png"/ style="border:0;">
+				<img src="images/puppet-users/newrelic_color_0.png"/ style="border:0;">
+				<img src="images/puppet-users/vmware.png"/ style="border:0;">
+				<br/>
+				<small><a href="https://puppetlabs.com/about/customers" >... a lista é grande ...</a></small>
+				</div> 
+
 				<aside class="notes">
 				Vamos apresentar um básico, mas vamos passar rápido isso aqui.
 					O Puppet foi criado...
+
 				</aside>
 			</section>
 
 			<section>
-				<ul>
-					<li>Pull. Masterless (pull rodando local) vs Master.</li>
-					<li>Citar Orchestrator no Enterprise</li>
-					<li>Citar meu bacalhau medonho</li>
+				<img src="images/puppet-architecture.svg"/ style="border:0;">
+				<aside class="notes">
+
+				Fazer novo diagrama
 					<li>PuppetDB</li>
 					<li>Mcollective</li>
-					<li>PuppetServer</li>
-					<li>DSL + templates ERB</li>
-					<li>Feito em ruby / nodejs / java ... DSL torna isso geralmente irrelevante.</li>
-					<li>Auth/Crypto: CA</li>
-				</ul>
+				</aside>
 			</section>
 
 			<section>
-				<h3>Puppet Enterprise</h3>
+				<h3>Puppet (2)</h3>
+				<br/>
 				<ul>
+					<li>Master (<b>pull</b>) e Masterless (<i>pull rodando local</i>).</li>
+					<li>Novo Puppet Server</li>
+					<li>DSL + templates ERB (ruby)</li>
+					<li>Feito em ruby / clojure / java ... DSL torna isso geralmente irrelevante.</li>
+					<li>Segurança e auth: certificados SSL</li>
 				</ul>
+				<aside class="notes">
+					<li>Citar meu bacalhau medonho? (pulshppet)</li>
+					<li>Mcollective para orquestração.</li>
+				</aside>
 			</section>
 
 			<section>
-				<h3>Open Source: Dashboards e mais ... </h3>
+				<h3>Puppet (3): Enterprise</h3>
+				<br/>
 				<ul>
-					<li>Puppet Explorer (Spotify)</li>
-					<li>Puppetboard</li>
-					<li>Puppet Dashboard</li>
-					<li>Foreman</li>
-					<li>PCP</li>
+					<li>Novo Orchestrator</li>
 				</ul>
+				<aside class="notes">
+					Um dos pontos a favor da maturidade.
+				</aside>
+			</section>
+
+			<section>
+				<h3>Puppet (4): Dashboards livres</h3>
+				<br/>
+				<ul>
+					<li><a href="https://github.com/spotify/puppetexplorer">Puppet Explorer (Spotify)</a></li>
+					<li><a href="https://github.com/voxpupuli/puppetboard">Puppetboard</a></li>
+					<li><a href="https://github.com/sodabrew/puppet-dashboard">(Legado) Puppet Dashboard</a></li>
+					<li><a href="http://theforeman.org/">Foreman</a></li>
+					<li><a href="https://github.com/gutocarvalho/pcp">Puppet Community Platform (PCP)</a></li>
+				</ul>
+				<aside class="notes">
+					<p>Puppet Explorer: meu atual favorito.</p>
+					<p>Puppet Dashboard é mais velho. Abandonado? Há dúvidas...</p>
+					<p>Foreman: ainda não suporta o Puppet 4. Projeto maior, mais abrangente.</p>
+					<p>PCP do Guto Carvalho e Miguel Di Ciurcio Filho da Instruct. Inclui Server, PuppetDB, Explorer e Mcollective.</p>
+
+					Imagens? Mostrar rodando (ao menos o explorer)
+				</aside>
 			</section>
 		</section>
 
@@ -387,16 +427,16 @@
 			<li>Voltando: maturidade, flexibilidade, simplicidade.</li>
 			<li>Perae, e o Docker nisso tudo?</li>
 			<li>Meus testes e post no meu blog</li>
-			<li>Followup da palestra?</li>
+			<li>Faltou muita coisa. Followup da palestra?</li>
 
 			<aside class="notes">
 			</aside>
 		</section>
 		<section>
-			<h3>Faltou muito</h3>
+			<h3>Uma notinha sobre DevOps</h3>
 
-			<li>Mais sobre hiera e variáveis</li>
-			<li>Hiera crypt, vault</li>
+			<li>Grupos no telegram, e slack(?)</li>
+			<li>Planet DevOps</li>
 			<li>...</li>
 
 			<aside class="notes">
