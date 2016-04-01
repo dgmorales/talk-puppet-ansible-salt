@@ -129,7 +129,7 @@
 			&nbsp; &nbsp;
 			<a href="http://www.puppetlabs.com/"><img src="images/puppet-labs.png"/ width="280" style="border:0;"></a>
 			&nbsp; &nbsp;
-			<a href="http://www.ansibleworks.com/"><img src="images/ansible.png"/ width="200" style="border:0;"></a>
+			<a href="http://www.ansible.com/"><img src="images/ansible.png"/ width="200" style="border:0;"></a>
 			&nbsp; &nbsp;
 			<a href="http://saltstack.com/"><img src="images/SaltStack.png"/ width="320" style="border:0;"></a>
 			<br/>
@@ -197,12 +197,12 @@
 				<br/>
 				<p>Criado em 2005, por um sysadmin, Luke Kanies.</p>
 				<div style="vertical-align:middle;">
-				<img src="images/puppet-users/github_color.png"/ style="border:0;">
-				<img src="images/puppet-users/nasa_color.png"/ style="border:0;">
-				<img src="images/puppet-users/spotifty_color.png"/ style="border:0;">
-				<img src="images/puppet-users/nestle_color.png"/ style="border:0;">
-				<img src="images/puppet-users/newrelic_color_0.png"/ style="border:0;">
-				<img src="images/puppet-users/vmware.png"/ style="border:0;">
+				<img src="images/puppet-users/github_color.png" style="border:0;">
+				<img src="images/puppet-users/nasa_color.png" style="border:0;">
+				<img src="images/puppet-users/spotifty_color.png" style="border:0;">
+				<img src="images/puppet-users/nestle_color.png" style="border:0;">
+				<img src="images/puppet-users/newrelic_color_0.png" style="border:0;">
+				<img src="images/puppet-users/vmware.png" style="border:0;">
 				<br/>
 				<small><a href="https://puppetlabs.com/about/customers" >... a lista é grande ...</a></small>
 				</div> 
@@ -243,8 +243,13 @@
 			<section>
 				<h3>Puppet (3): Enterprise</h3>
 				<br/>
-				<ul>
+				<img src="images/puppet-tools/puppet-enterprise.jpg" style="border:0; float:right;" height="300" alt="Puppet Enterprise Interface">
+				<ul style="display: table;">
+					<li>Maturidade!</li>
+					<li>Dashboard</li>
+					<li>Node classification</li>
 					<li>Novo Orchestrator</li>
+					<li><a href="https://puppetlabs.com/puppet/how-to-buy">Pricing</a>: US$ 120/node/ano.
 				</ul>
 				<aside class="notes">
 					Um dos pontos a favor da maturidade.
@@ -252,12 +257,14 @@
 			</section>
 
 			<section>
-				<h3>Puppet (4): Dashboards livres</h3>
+				<h3>Puppet (4): no Enterprise</h3>
 				<br/>
-				<ul>
+				<img src="images/puppet-tools/puppet-explorer.png" style="border:0; float:right;" height="250" alt="Puppet Explorer Interface">
+				<ul style="display: table;">
 					<li><a href="https://github.com/spotify/puppetexplorer">Puppet Explorer (Spotify)</a></li>
 					<li><a href="https://github.com/voxpupuli/puppetboard">Puppetboard</a></li>
 					<li><a href="https://github.com/sodabrew/puppet-dashboard">(Legado) Puppet Dashboard</a></li>
+					<br/>
 					<li><a href="http://theforeman.org/">Foreman</a></li>
 					<li><a href="https://github.com/gutocarvalho/pcp">Puppet Community Platform (PCP)</a></li>
 				</ul>
@@ -275,31 +282,57 @@
 		<section>
 
 			<section>
-			<h2>Ansible (==> RedHat)</h2>
-			<aside class="notes">
-			</aside>
+				<h2>Ansible & <strike>Ansible Inc.</strike> RedHat</h2>
+				<br/>
+				<p>Criado em 2012, por Michael DeHaan, bebendo muito do Puppet.</p>
+				<div style="vertical-align:middle;background-color:black;">
+				<img src="images/ansible-users/evernote.png"/ style="border:0;background-color:black;">
+				<img src="images/ansible-users/twitter.png"/ style="border:0;background-color:black;">
+				<img src="images/ansible-users/verisign.png"/ style="border:0;background-color:black;">
+				<img src="images/ansible-users/gopro.png"/ style="border:0;background-color:black;">
+				<img src="images/ansible-users/harvard.png"/ style="border:0;background-color:black;">
+				<img src="images/ansible-users/easports.png"/ style="border:0;background-color:black;">
+				<img src="images/ansible-users/logo-verizon-wsm.png"/ style="border:0;background-color:black;">
+				<br/>
+				</div>
+
+				<aside class="notes">
+					<p>Recentemente adquirido pela RedHat.</p>
+					<p>Michael DeHaan se afastou (o quanto?).</p>
+				</aside>
 			</section>
 
 			<section>
+				<h3>Ansible (1): Arquitetura?</h3>
+				<br/>
 				<ul>
 					<li>Push com SSH (Simplicidade!). Pull rodando local.</li>
 					<li>Orquestração em várias máquinas. Strategies?</li>
+        				<li>Python!</li>
         				<li>YAML + templates jinja2</li>
-        				<li>Python</li>
         				<li>Auth/Crypto: by SSH</li>
 				</ul>
 			</section>
 
 			<section>
-				<h3>Ansible Tower</h3>
-				<ul>
+				<h3>Ansible (2): Tower</h3>
+				<br/>
+				<img src="images/ansible-tools/ansible-tower-1.png" style="border:0; float:right;" width="500" alt="Ansible Tower Interface">
+				<ul style="display: table;">
+					<li>Dashboard, Inventário, Remote Execution ...</li>
+					<li> ... e agora <i>System Tracking</i> também.</li>
+					<li>3 <a href="https://www.ansible.com/tower-features">variantes</a>, US$ ~ <a href="https://www.ansible.com/pricing">50-140</a>/node/ano.</li>
 				</ul>
 			</section>
 
 			<section>
-				<h3>Outros projetos open source?</h3>
+				<h3>Ansible (3): no Tower</h3>
+				<br/>
 				<ul>
-        				<li>Usar o Rundeck como frontend.</li>
+					<li><a href="http://rundeck.org/">Rundeck</a> como frontend do Ansible parece bem popular.</li>
+					<li><a href="https://github.com/ansible-semaphore/semaphore">Semaphore</a>: <i>Open Source Alternative to Ansible Tower</i>.
+					<ul><li>(não, não é o SemaphoreCI)</li></ul>
+					<li><a href="http://theforeman.org/">Foreman</a> de novo.</li>
 				</ul>
 			</section>
 
@@ -308,12 +341,25 @@
 		<section>
 
 			<section>
-			<h2>SaltStack</h2>
+			<h2>Salt & SaltStack</h2>
+				<br/>
+				<p>Criado em 2011, por Thomas Hatch.</p>
+				<div style="vertical-align:middle;">
+				<img src="images/salt-users/logo_150x150_comcast.png" style="border:0;">
+				<img src="images/salt-users/logo_150x150_hulu.png" style="border:0;">
+				<img src="images/salt-users/logo_150x150_nasaJPL.png" style="border:0;">
+				<img src="images/salt-users/logo_150x150_linkedIn.png" style="border:0;">
+				<img src="images/salt-users/logo_150x150_departmentOfDefense.png" style="border:0;">
+				<img src="images/salt-users/logo_150x150_partner_sky.png" style="border:0;">
+				<br/>
+				</div>
 			<aside class="notes">
 			</aside>
 			</section>
 
 			<section>
+				<h3>Salt (1): Arquitetura?</h3>
+				<br/>
 				<ul>
         				<li>Push com SSH. Push/Pull com ZeroMQ , Pull rodando local. (Flexibilidade!)</li>
         				<li>Python</li>
@@ -326,14 +372,24 @@
 			</section>
 
 			<section>
-				<h3>SaltStack Enterprise</h3>
+				<h3>Salt (2): Enterprise</h3>
+				<br/>
 				<ul>
+					<li>Novato: ainda em um <i>early adopter program</i>.</li>
+					<li>Sem pricing divulgado.</li>
 				</ul>
 			</section>
 
 			<section>
-				<h3>Saltweb</h3>
-				<ul>
+				<h3>Salt (3): no Enterprise</h3>
+				<br/>
+				<img src="images/salt-tools/saltpad.png" style="border:0; float:right;" width="500" alt="Saltpad Interface">
+				<ul style="display: table;">
+					<li><a href="https://github.com/Lothiraldan/saltpad">Saltpad</a>: mais falado, promissor, <b>alpha</b>.
+					<li>Outros menos conhecidos: <a href="https://github.com/martinhoefling/molten">Molten</a>, <a href="https://github.com/mclarkson/obdi">OBDI</a>.
+					<li>Adivinha: <a href="http://theforeman.org/">Foreman</a> também.</li>
+					<li><a href="https://github.com/saltstack/halite">Halite</a>: abandonado.</li>
+				</ul>
 				</ul>
 			</section>
 		</section>
