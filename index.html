@@ -34,6 +34,7 @@
 		<![endif]-->
 	</head>
 
+
 	<body>
 
 		<div class="reveal">
@@ -49,7 +50,7 @@
 						<small>
 						&nbsp;
 						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
-						<a href="mailto:dgmorales@gmail.com" style="vertical-align:middle;">dgmorales@gmail.com</a>
+						<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a>
 						&nbsp;
 						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" /> 
 						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a> 
@@ -104,7 +105,7 @@
 				</ol>
 				<br/>
 				<br/>
-				<p>Online: <a href="http://dgmorales.info/cfgmgmt">http://dgmorales.info/cfgmgmt-pas</a></>
+				<p>Online: <a href="http://dgmorales.info/cm-pas">http://dgmorales.info/cm-pas</a></>
 				<aside class="notes">
 				<p>
 					A proposta aqui não é fácil. São 3 ferramentas
@@ -284,6 +285,7 @@
 			<section>
 				<h2>Ansible & <strike>Ansible Inc.</strike> RedHat</h2>
 				<br/>
+				<p><i>"Ansible’s <a href="http://docs.ansible.com/ansible/index.html">main goals</a> are simplicity and ease-of-use."</i></p>
 				<p>Criado em 2012, por Michael DeHaan, bebendo muito do Puppet.</p>
 				<div style="vertical-align:middle;background-color:black;">
 				<img src="images/ansible-users/evernote.png"/ style="border:0;background-color:black;">
@@ -303,10 +305,15 @@
 			</section>
 
 			<section>
-				<h3>Ansible (1): Arquitetura?</h3>
+				<img src="images/ansible-architecture.svg" style="border:0;">
+			</section>
+
+			<section>
+				<h3>Ansible (2)</h3>
 				<br/>
 				<ul>
 					<li>Push com SSH (Simplicidade!). Pull rodando local.</li>
+					<li>Windows: WinRM + PowerShell Remoting.</li>
 					<li>Orquestração em várias máquinas. Strategies?</li>
         				<li>Python!</li>
         				<li>YAML + templates jinja2</li>
@@ -315,7 +322,7 @@
 			</section>
 
 			<section>
-				<h3>Ansible (2): Tower</h3>
+				<h3>Ansible (3): Tower</h3>
 				<br/>
 				<img src="images/ansible-tools/ansible-tower-1.png" style="border:0; float:right;" width="500" alt="Ansible Tower Interface">
 				<ul style="display: table;">
@@ -326,7 +333,7 @@
 			</section>
 
 			<section>
-				<h3>Ansible (3): no Tower</h3>
+				<h3>Ansible (4): no Tower</h3>
 				<br/>
 				<ul>
 					<li><a href="http://rundeck.org/">Rundeck</a> como frontend do Ansible parece bem popular.</li>
@@ -358,7 +365,11 @@
 			</section>
 
 			<section>
-				<h3>Salt (1): Arquitetura?</h3>
+				<img src="images/salt-architecture.svg" style="border:0;">
+			</section>
+
+			<section>
+				<h3>Salt (2)</h3>
 				<br/>
 				<ul>
         				<li>Push com SSH. Push/Pull com ZeroMQ , Pull rodando local. (Flexibilidade!)</li>
@@ -372,7 +383,9 @@
 			</section>
 
 			<section>
-				<h3>Salt (2): Enterprise</h3>
+				<h3>Salt (3): Enterprise</h3>
+				<br/>
+				<p style="font-size:100px;">?</p>
 				<br/>
 				<ul>
 					<li>Novato: ainda em um <i>early adopter program</i>.</li>
@@ -381,7 +394,7 @@
 			</section>
 
 			<section>
-				<h3>Salt (3): no Enterprise</h3>
+				<h3>Salt (4): no Enterprise</h3>
 				<br/>
 				<img src="images/salt-tools/saltpad.png" style="border:0; float:right;" width="500" alt="Saltpad Interface">
 				<ul style="display: table;">
@@ -394,39 +407,99 @@
 			</section>
 		</section>
 
+		<section>
+		<h2>Show me the code!</h2>
+		<aside class="notes">
+
+		Puppet: DSL, módulos, classes, manifestos, hiera, ENC, roles and profiles (?). Muitos avanços no Puppet 4 (loops, etc)
+
+		Ansible: Inventário (dinâmicos tb), YAML, roles, variáveis de grupos e hosts
+		
+		Salt: Pillars and ?, States e etc.
+		</aside>
+		</section>
+
 
 		<section>
 			<section>
-			<h2>Show me the code!</h2>
-			<p>Package, File, Service.</p>
-			<aside class="notes">
-
-			Puppet: DSL, módulos, classes, manifestos, hiera, ENC, roles and profiles (?). Muitos avanços no Puppet 4 (loops, etc)
-
-			Ansible: Inventário (dinâmicos tb), YAML, roles, variáveis de grupos e hosts
-			
-			Salt: Pillars and ?, States e etc.
-			</aside>
+			<h2>Package, File, Service</h2>
+			<br/>
+			<br/>
+			<br/>
+			<p><small><a href="http://jjasghar.github.io/blog/2015/12/20/chef-puppet-ansible-salt-rosetta-stone/">http://jjasghar.github.io/blog/2015/12/20/chef-puppet-ansible-salt-rosetta-stone/</a></small></p>
 			</section>
-
 			<section>
 			<h3>Puppet</h3>
+			<pre><code data-trim>
+package { 'openssh-server':
+ ensure => installed,
+}
+
+file { '/etc/ssh/sshd_config':
+ source  => 'puppet:///modules/sshd/sshd_config',
+ owner   => 'root',
+ group   => 'root',
+ mode    => '0640',
+ notify  => Service['sshd']
+ require => Package['openssh-server'],
+ }
+
+service { 'sshd':
+ ensure     => running,
+ enable     => true,
+}
+			</code></pre>
 			<aside class="notes">
 			</aside>
 			</section>
 
 			<section>
 			<h3>Ansible</h3>
+			<pre><code data-trim>
+- name: install the latest version of openssh-server
+  package: name=openssh-server state=present
+
+- name: place our sshd_config
+  template:
+    src: /mytemplates/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+
+- service: name=ssh state=started
+			</code></pre>
 			<aside class="notes">
 			</aside>
 			</section>
 
 			<section>
 			<h3>Salt</h3>
+			<pre><code data-trim>
+openssh-server:
+  pkg.installed:
+    - name: openssh-server
+  service.running:
+    - name: sshd
+    - enable: True
+    - require:
+      - pkg: openssh-server
+
+  file.managed:
+    - name: /etc/ssh/sshd_config
+    - source: salt://ssh/sshd_config
+    - user: root
+    - group: root
+    - mode: 640
+    - watch_in:
+      - service: openssh-server
+			</code></pre>
 			<aside class="notes">
 			</aside>
 			</section>
+		</section>
 
+		<section>
 			<section>
 			<h2>Loops</h2>
 			<aside class="notes">
@@ -435,77 +508,121 @@
 
 			<section>
 			<h3>Puppet</h3>
+			<pre><code data-trim>
+			</code></pre>
 			<aside class="notes">
 			</aside>
 			</section>
 
 			<section>
 			<h3>Ansible</h3>
+			<pre><code data-trim>
+			</code></pre>
 			<aside class="notes">
 			</aside>
 			</section>
 
 			<section>
 			<h3>Salt</h3>
+			<pre><code data-trim>
+			</code></pre>
 			<aside class="notes">
 			</aside>
 			</section>
 		</section>
 
 		<section>
-			<h3>Comunidade</h3>
+			<h2>"Baterias" internas e externas</h2>
 			<br/>
-			<p>Puppet: &nbsp; Forge, grupo no telegram, meetups não muito bem sucedidos</p>
-			<p>Ansible: &nbsp; Galaxy, algum grupo?</p>
-			<p>Salt: &nbsp; ...., algo no brasil?</p>
+			<p><b>Puppet</b> <a href="https://forge.puppetlabs.com/">Forge</a>: 4000+ módulos, 36 <a href="https://forge.puppetlabs.com/modules?endorsements=supported">Supported</a>, 79 <a href="https://forge.puppetlabs.com/modules?endorsements=approved">Approved</a>. E alguns poucos tipos <a href="https://docs.puppetlabs.com/puppet/latest/reference/type.html">nativos</a>.
+			<hr/>
+			<p><b>Ansible</b>: <i>batteries included</i>, muitos <a href="http://docs.ansible.com/ansible/list_of_all_modules.html">módulos</a>. E 5000+ roles no <a href="https://galaxy.ansible.com/list#/roles?page=1&page_size=10">Galaxy</a>.</p>
+			<hr/>
+			<p>E o <b>Salt</b> sendo o Salt: temos <a href="https://docs.saltstack.com/en/latest/ref/modules/all/index.html">execution</a> modules, <a href="https://docs.saltstack.com/en/latest/ref/states/all/index.html">state</a> modules, e <a href="https://cse.google.com/cse?cx=004624818632696854117:yfmprrbw3pk&q=Full%20list%20modules#gsc.tab=0&gsc.q=Full%20list%20modules&gsc.page=1">mais</a>. Tem de tudo no <a href="https://github.com/saltstack/salt-contrib">salt-contrib</a>, e agora no <a href="http://saltstarters.org/">SaltStarters</a>.</p>
 			<aside class="notes">
 				Figuras?
     				Salt e Ansible são mais batteries included
     				Lista de módulos incluídos Salt e Ansible.
+			</aside>
+		</section>
+
+		<section>
+			<section>
+			<h2>Documentação ...</h2>
+			<aside class="notes">
+			<p>Puppet: &nbsp; Excelente, madura e completa + Learning VM</p>
+			<p>Salt: &nbsp; confusa pacas, começando a melhorar</p>
+
+				Figuras?
+			</aside>
+			</section>
+
+			<section>
+			<h3>... Puppet</h3>
+			<img src="images/docs-joke-puppet.png" style="border:0;" height="300"/>
+			<ul class="fragment">
+				<li>Madura, organizada, completa.</a></li>
+			<li><a href="https://docs.puppetlabs.com/">https://docs.puppetlabs.com/</a></li>
+			<li>Recomendo: <a href="https://puppetlabs.com/download-learning-vm?_ga=1.1418673.1862807482.1454350387">Learning VM</a>.</li>
+			</ul>
+			</section>
+
+			<section>
+			<h3>... Ansible</h3>
+			<img src="images/docs-joke-ansible.png" style="border:0; float:left;" height="350"/>
+			<br/>
+			<br/>
+			<ul class="fragment" style="display:table; padding-left:60px">
+				<li>Fácil, estilo tutorial. Mas não tão boa como referência.</a></li>
+				<li><a href="http://docs.ansible.com/">http://docs.ansible.com/</a></li>
+				<li>Começa no <i><a href="http://docs.ansible.com/ansible/intro_getting_started.html">Getting Started</a></i> e vai embora...</li>
+			</ul>
+			</section>
+
+			<section>
+			<h3>... Salt</h3>
+			<img src="images/docs-joke-salt2.png" style="border:0;" height="400"/>
+			<ul class="fragment">
+				<li>Uma floresta: vasta, linda, horrível, confusa, perigosa.</a></li>
+				<li><a href="https://docs.saltstack.com/en/latest/">https://docs.saltstack.com/en/latest/</a></li>
+				<li>Um oásis de ordem e amigabilidade: <i><a href="https://docs.saltstack.com/en/getstarted/">Getting Started</a></i></li>
+			</ul>
+			</section>
+		</section>
+
+		<section>
+			<h2>Comunidade e Brasil</h2>
+			<br/>
+			<p><b>Puppet</b>, pacote completo: listas <a href="https://groups.google.com/forum/#!forum/puppet-users-br">br</a> e <a href="https://groups.google.com/forum/#!forum/puppet-users">en</a>, <a href="https://telegram.me/joinchat/AejjFQIq_2kBH1EQ7mVfjw">telegram</a>, IRC #puppet-br, #puppet, <a href="http://www.meetup.com/pt-BR/puppet-br/">meetup</a>. Empresa BR: <a href="http://instruct.com.br/">Instruct</a> e outras...</p>
+			<small><p>https://telegram.me/joinchat/AejjFQIq_2kBH1EQ7mVfjw</p></small>
+			<hr/>
+			<p><b>Ansible</b>... em inglês: #ansible, <a href="https://groups.google.com/forum/#!forum/ansible-project">lista</a>. Meetups BR parados: <a href="http://www.meetup.com/pt-BR/Ansible-Sao-Paulo/">SP</a> e <a href="http://www.meetup.com/pt-BR/Ansible-Rio-de-Janeiro/">RJ</a>.</p>
+			<hr/>
+			<p><b>Salt</b> ... em inglês: #salt, <a href="https://groups.google.com/forum/#!forum/salt-users">lista</a>. E no Brasil nada...</p>
+			<aside class="notes">
     				Receptividade de fixes das comunidades?
 			</aside>
 		</section>
 
 		<section>
-			<h3>Documentação</h3>
+			<h3>Concluindo</h3>
+
 			<br/>
-			<p>Puppet: &nbsp; Excelente, madura e completa + Learning VM</p>
-			<p>Ansible: &nbsp; Muito simples, mas não tão boa em referência </p>
-			<p>Salt: &nbsp; confusa pacas, começando a melhorar</p>
-			<aside class="notes">
-				Figuras?
-			</aside>
-		</section>
-
-		<section>
-			<h3>Chegando ao fim ...</h3>
-
-			<li>Voltando: maturidade, flexibilidade, simplicidade.</li>
-			<li>Perae, e o Docker nisso tudo?</li>
-			<li>Meus testes e post no meu blog</li>
-			<li>Faltou muita coisa. Followup da palestra?</li>
-
-			<aside class="notes">
-			</aside>
-		</section>
-		<section>
-			<h3>Uma notinha sobre DevOps</h3>
-
-			<li>Grupos no telegram, e slack(?)</li>
-			<li>Planet DevOps</li>
-			<li>...</li>
-
-			<aside class="notes">
-			</aside>
-		</section>
-
-		<section>
-			<h2>Por hoje é só pessoal!</h2>
+			<p>De novo: maturidade, flexibilidade, simplicidade.</p>
 			<br/>
-			<h3>Contato</h3>
+			<p>Peraí, e o Docker nisso tudo?</p>
+			<br/>
+			<p>Github repo em breve...</p>
+
+			<aside class="notes">
+			</aside>
+		</section>
+
+		<section>
+			<h2>Contato</h2>
 			<br/>
 			<p>
-			Diego Morales 
+			Diego Morales
 			<br/>
 			<small>
 			<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
@@ -516,7 +633,7 @@
 			</small>
 			</p>
 			<br/>
-			<p>Slides: &nbsp; <a href="http://dgmorales.info/sysadmin">http://dgmorales.info/sysadmin</a></p>
+			<p>Slides: <a href="http://dgmorales.info/cm-pas">http://dgmorales.info/cm-pas</a></>
 			<p>
 			Blog: <i>Do, Automate, Repeat</i> &nbsp; <a
 				href="http://doauto.wordpress.com">http://doauto.wordpress.com</a>
