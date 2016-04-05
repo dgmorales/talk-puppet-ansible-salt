@@ -503,33 +503,83 @@ openssh-server:
 			<section>
 			<h2>Loops</h2>
 			<aside class="notes">
+				<p>Loops é um caso interessante de se examinar pois são:</p>
+				<p>3 maneiras bem diferentes...</p>
+				<p>... que dizem muito sobre o estilo de cada um.</p>
 			</aside>
 			</section>
 
 			<section>
 			<h3>Puppet</h3>
+			<br/>
 			<pre><code data-trim>
+$binaries = ["run", "build", "update", "foo"]
+
+$binaries.each |String $binary| {
+  file {"/usr/local/bin/myapp-$binary":
+    ensure => link,
+    target => "/opt/myapp/bin/$binary",
+  }
+}
 			</code></pre>
-			<aside class="notes">
+			<p>Requer puppet 4.x ou parser=future</p>
+			<p>each, slice, filter, map, e <a href="https://docs.puppetlabs.com/puppet/4.4/reference/lang_iteration.html">mais</a></p>
+		       	<aside class="notes">
+				<p>No puppet 3.x o <i>workaround</i> é defined types + resource-title-arrays, muito mais trabalhoso e limitado.</p>
 			</aside>
 			</section>
 
 			<section>
 			<h3>Ansible</h3>
 			<pre><code data-trim>
+- hosts: all
+  tasks:
+  - name: create symlinks for our app
+    file: >
+      state=link src=/opt/myapp/bin/{{ item }}
+      dest=/usr/local/bin/myapp-{{ item }} force=yes
+    with_items:
+      - run
+      - build
+      - update
+      - foo
 			</code></pre>
+				<p>with_dict, with_nested, with_fileglobs, e <a href=http://docs.ansible.com/ansible/playbooks_loops.html">mais...</a></p>
+				<p><a href="https://support.ansible.com/hc/en-us/articles/201957837-How-do-I-split-an-action-into-a-multi-line-format-">outros jeitos</a> de quebrar ... &gt;
+			        <p>... linhas</p>
+				<p>Aproveitando: Idempotência?</p>
 			<aside class="notes">
+			<p>Idempotência: uma bandeira do Puppet. Ele é provavelmente o melhor dos 3 nisso, mas não é como se os outros ignorassem esse conceito.</p>
 			</aside>
 			</section>
 
 			<section>
 			<h3>Salt</h3>
+			<br/>
 			<pre><code data-trim>
+{% for binary in ['run', 'build', 'update', 'foo'] %}
+/usr/local/bin/myapp-{{ binary }}:
+  file.symlink:
+    - target: /opt/myapp/bin/{{ binary }}
+{% endfor %}
 			</code></pre>
+			<p><a href="https://docs.saltstack.com/en/getstarted/config/jinja.html">Jinja</a>. Dentro da sua formula salt.</p>
+			<p>Programe o seu código. Pode ser bom, pode ser ruim.</p>
+			<p>Usado por tudo, inclusive pillar (definição condicional de variáveis).</p>
 			<aside class="notes">
 			</aside>
 			</section>
 		</section>
+
+		<!--
+
+		Slide tabela glossário?
+		
+		Outros exemplos: file serving, puppet e ansible (caso da pergunta no telegram).
+		Puppet é simples depois que tu tá firme nos módulos, mas no início, o cara mal
+		sabe o que é uma classe ou módulo.
+
+		-->
 
 		<section>
 			<h2>"Baterias" internas e externas</h2>
@@ -548,17 +598,13 @@ openssh-server:
 
 		<section>
 			<section>
-			<h2>Documentação ...</h2>
+			<h2>Documentação</h2>
 			<aside class="notes">
-			<p>Puppet: &nbsp; Excelente, madura e completa + Learning VM</p>
-			<p>Salt: &nbsp; confusa pacas, começando a melhorar</p>
-
-				Figuras?
 			</aside>
 			</section>
 
 			<section>
-			<h3>... Puppet</h3>
+			<h3>Puppet ...</h3>
 			<img src="images/docs-joke-puppet.png" style="border:0;" height="300"/>
 			<ul class="fragment">
 				<li>Madura, organizada, completa.</a></li>
@@ -580,7 +626,7 @@ openssh-server:
 			</section>
 
 			<section>
-			<h3>... Salt</h3>
+			<h3>Salt &nbsp;&nbsp; /o\</h3>
 			<img src="images/docs-joke-salt2.png" style="border:0;" height="400"/>
 			<ul class="fragment">
 				<li>Uma floresta: vasta, linda, horrível, confusa, perigosa.</a></li>
@@ -605,14 +651,16 @@ openssh-server:
 		</section>
 
 		<section>
-			<h3>Concluindo</h3>
+			<h2>Concluindo</h2>
 
 			<br/>
-			<p>De novo: maturidade, flexibilidade, simplicidade.</p>
-			<br/>
+			<p>De novo: maturidade, flexibilidade, simplicidade. Qual é o mais importante?</p>
+<!--			<br/>
 			<p>Peraí, e o Docker nisso tudo?</p>
+-->
 			<br/>
-			<p>Github repo em breve...</p>
+			<p>Github repo: em breve mais.</p>
+			<p><a href="https://github.com/dgmorales/vagrant-cfgmgmt-sandbox">https://github.com/dgmorales/vagrant-cfgmgmt-sandbox</a></p>
 
 			<aside class="notes">
 			</aside>
