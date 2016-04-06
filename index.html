@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- vim: set ts=2 sw=2 tw=1000: -->
 <html lang="en">
 
 	<head>
@@ -52,8 +53,8 @@
 						<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
 						<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a>
 						&nbsp;
-						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" /> 
-						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a> 
+						<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+						<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
 						</small>
 					</p>
 					<aside class="notes">
@@ -86,7 +87,7 @@
 					Puppet?
 					Ansible?
 					Salt?
-					
+
 					</p>
 					</aside>
 				</section>
@@ -206,7 +207,7 @@
 				<img src="images/puppet-users/vmware.png" style="border:0;">
 				<br/>
 				<small><a href="https://puppetlabs.com/about/customers" >... a lista é grande ...</a></small>
-				</div> 
+				</div>
 
 				<aside class="notes">
 				Vamos apresentar um básico, mas vamos passar rápido isso aqui.
@@ -219,9 +220,6 @@
 				<img src="images/puppet-architecture.svg"/ style="border:0;">
 				<aside class="notes">
 
-				Fazer novo diagrama
-					<li>PuppetDB</li>
-					<li>Mcollective</li>
 				</aside>
 			</section>
 
@@ -230,14 +228,21 @@
 				<br/>
 				<ul>
 					<li>Master (<b>pull</b>) e Masterless (<i>pull rodando local</i>).</li>
-					<li>Novo Puppet Server</li>
-					<li>DSL + templates ERB (ruby)</li>
-					<li>Feito em ruby / clojure / java ... DSL torna isso geralmente irrelevante.</li>
-					<li>Segurança e auth: certificados SSL</li>
+					<li>Linguagem: Puppet DSL + templates ERB (ruby)</li>
+					<li>Feito em ruby / clojure / java ... </li>
+					<ul>
+						<li>... DSL torna isso geralmente irrelevante.</li>
+					</ul>
+					<li>Segurança e auth: certificados SSL.</li>
+					<li>Mcollective para orquestração.</li>
 				</ul>
 				<aside class="notes">
-					<li>Citar meu bacalhau medonho? (pulshppet)</li>
-					<li>Mcollective para orquestração.</li>
+					<p>Ruby: facts feitos em ruby, mas cada vez menos necessários.</p>
+					<p>Tem uma CA interna super fácil de usar, mas suporta apontar para um CA externa também</p>
+					<p>Como eu queria um modo push. Código vivo na minha máquina, lê aqui, vai lá e faz. Feio e perigoso, eu sei.</p>
+					<p>Faz um tempo que eu não procuro, mas não tinha nada muito interessante.</p>
+					<p>Mcollective muito utilizado para disparar agent runs.</p>
+					<p>É o mais maduro em suporte a windows.</p>
 				</aside>
 			</section>
 
@@ -249,16 +254,19 @@
 					<li>Maturidade!</li>
 					<li>Dashboard</li>
 					<li>Node classification</li>
-					<li>Novo Orchestrator</li>
+					<li>Novo <a href="https://www.youtube.com/watch?v=X6KZsxSorgw">App Orchestrator</a>. Push ?!? </li>
 					<li><a href="https://puppetlabs.com/puppet/how-to-buy">Pricing</a>: US$ 120/node/ano.
 				</ul>
 				<aside class="notes">
-					Um dos pontos a favor da maturidade.
+					<p>Um dos pontos a favor da maturidade.</p>
+					<p>Orchestrator: define os componentes de um app, a relação entre eles, onde roda cada um, e ele se vira com o resto.</p>
+					<p>Ao meu ver Puppet App Orchestrator é uma resposta da PuppetLabs aos features de orquestração de Ansible e Salt, com o jeito Puppet de ser.</p>
+					<p>Ainda um privilégio do Enterprise. Não se sabe até quando.</p>
 				</aside>
 			</section>
 
 			<section>
-				<h3>Puppet (4): no Enterprise</h3>
+				<h3>Puppet (4): não Enterprise</h3>
 				<br/>
 				<img src="images/puppet-tools/puppet-explorer.png" style="border:0; float:right;" height="250" alt="Puppet Explorer Interface">
 				<ul style="display: table;">
@@ -274,8 +282,6 @@
 					<p>Puppet Dashboard é mais velho. Abandonado? Há dúvidas...</p>
 					<p>Foreman: ainda não suporta o Puppet 4. Projeto maior, mais abrangente.</p>
 					<p>PCP do Guto Carvalho e Miguel Di Ciurcio Filho da Instruct. Inclui Server, PuppetDB, Explorer e Mcollective.</p>
-
-					Imagens? Mostrar rodando (ao menos o explorer)
 				</aside>
 			</section>
 		</section>
@@ -300,7 +306,7 @@
 
 				<aside class="notes">
 					<p>Recentemente adquirido pela RedHat.</p>
-					<p>Michael DeHaan se afastou (o quanto?).</p>
+					<p>Michael DeHaan se afastou, e parece bem afastado.</p>
 				</aside>
 			</section>
 
@@ -312,13 +318,21 @@
 				<h3>Ansible (2)</h3>
 				<br/>
 				<ul>
-					<li>Push com SSH (Simplicidade!). Pull rodando local.</li>
-					<li>Windows: WinRM + PowerShell Remoting.</li>
-					<li>Orquestração em várias máquinas. Strategies?</li>
-        				<li>Python!</li>
-        				<li>YAML + templates jinja2</li>
-        				<li>Auth/Crypto: by SSH</li>
+					<li><i>Agentless</i></li>
+					<ul>
+						<li>Push over SSH (Simplicidade!). Pull rodando local.</li>
+						<li>Lento? Veja algumas alternativas <a href="https://www.ansible.com/blog/ansible-performance-tuning">[1]</a> <a href="http://docs.ansible.com/ansible/playbooks_acceleration.html">[2]</a></li>
+						<li><a href="http://docs.ansible.com/ansible/intro_windows.html">Windows</a>: WinRM + PowerShell Remoting</li>
+					</ul>
+					<li>Simplifica orquestração em várias máquinas</li>
+					<li>Linguagem: YAML + templates jinja2</li>
+					<li>Python!</li>
+					<li>Auth/Crypto: seu fiel amigo SSH</li>
 				</ul>
+				<aside class="notes">
+					<p>Depende de um inventário de hosts, que pode ser dinâmico, um script, vários prontos.</p>
+					<p>Orquestração: vai no balanceador e tira máquinas x, y, z do serviço, vai em x, y e z e atualiza a aplicação, reboota elas, e aguarda voltarem, vai lá no balanceador e põe elas de volta.</p>
+				</aside>
 			</section>
 
 			<section>
@@ -333,7 +347,7 @@
 			</section>
 
 			<section>
-				<h3>Ansible (4): no Tower</h3>
+				<h3>Ansible (4): não Tower</h3>
 				<br/>
 				<ul>
 					<li><a href="http://rundeck.org/">Rundeck</a> como frontend do Ansible parece bem popular.</li>
@@ -372,13 +386,36 @@
 				<h3>Salt (2)</h3>
 				<br/>
 				<ul>
-        				<li>Push com SSH. Push/Pull com ZeroMQ , Pull rodando local. (Flexibilidade!)</li>
-        				<li>Python</li>
-        				<li>YAML + templates jinja2, porém o próprio YAML pode ser "templated"</li>
-        				<li>Auth/Crypto: ZeroMQ crypto?, e by SSH</li>
+					<li>Push/Pull com ZeroMQ , Pull rodando local. (<a href="https://docs.saltstack.com/en/getstarted/flexibility.html">Flexibilidade</a>!)</li>
+					<ul>
+						<li>Opção <i>agentless</i>: push com <a href="https://docs.saltstack.com/en/latest/topics/ssh/">salt-ssh</a></li>
+					</ul>
+					<li>Rápido! (com ZeroMQ)</li>
+					<li>Linguagem: YAML + templates jinja2</li>
+					<ul>
+						<li>A sua receita é um template jinja!</li>
+					</ul>
+					<li>Python again</li>
+					<li>Auth/Crypto: meio problemático.</li>
+					<ul>
+						<li>ZeroMQ não tem SSL. Salt adiciona AES em cima.</li>
+						<li><a href="https://groups.google.com/forum/#!topic/salt-users/nh8MqRiHVt4"><i>partly cooked at home and partly based on deprecated libraries</i></a></li>
+					</ul>
 				</ul>
 			<aside class="notes">
-				Falar da Performance deles ....
+				<p>É o mais rápido.</p>
+				<p>Segurança é uma preocupação. Rodar salt na internet não parece uma boa. E não suporta CA externas</p>
+
+				<p>"Salt crypto is partly cooked at home and partly based on deprecated libraries, and there have been issues in the past." Estão fazendo um novo transporte. Feito em casa, inclusive a crypto. Projeto que será aberto e independente.</p>
+
+				<p>Salt-SSH é outra história</p>
+				<ul>
+					<li>salt-ssh tem limitações</li>
+					<ul>
+						<li>sudo só com NOPASSWD</li>
+						<li>algumas operações com o fileserver interno dele precisam de contornos...</li>
+					</ul>
+				</ul>
 			</aside>
 			</section>
 
@@ -394,7 +431,7 @@
 			</section>
 
 			<section>
-				<h3>Salt (4): no Enterprise</h3>
+				<h3>Salt (4): não Enterprise</h3>
 				<br/>
 				<img src="images/salt-tools/saltpad.png" style="border:0; float:right;" width="500" alt="Saltpad Interface">
 				<ul style="display: table;">
@@ -414,7 +451,7 @@
 		Puppet: DSL, módulos, classes, manifestos, hiera, ENC, roles and profiles (?). Muitos avanços no Puppet 4 (loops, etc)
 
 		Ansible: Inventário (dinâmicos tb), YAML, roles, variáveis de grupos e hosts
-		
+
 		Salt: Pillars and ?, States e etc.
 		</aside>
 		</section>
@@ -425,30 +462,32 @@
 			<h2>Package, File, Service</h2>
 			<br/>
 			<br/>
-			<br/>
-			<p><small><a href="http://jjasghar.github.io/blog/2015/12/20/chef-puppet-ansible-salt-rosetta-stone/">http://jjasghar.github.io/blog/2015/12/20/chef-puppet-ansible-salt-rosetta-stone/</a></small></p>
+			<p>Se fosse possível fazer apenas isso, já seria possível fazer muita coisa.</p>
+
 			</section>
 			<section>
 			<h3>Puppet</h3>
 			<pre><code data-trim>
 package { 'openssh-server':
- ensure => installed,
+  ensure => installed,
 }
 
 file { '/etc/ssh/sshd_config':
- source  => 'puppet:///modules/sshd/sshd_config',
- owner   => 'root',
- group   => 'root',
- mode    => '0640',
- notify  => Service['sshd']
- require => Package['openssh-server'],
+  source  => 'file:///vagrant/puppet/sshd_config',
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
+  notify  => Service['ssh']
+#  require => Package['openssh-server'],
  }
 
-service { 'sshd':
- ensure     => running,
- enable     => true,
+service { 'ssh':
+  ensure => running,
+  enable => true,
 }
 			</code></pre>
+			<p>O require não é mais necessário no 4.x, ele segue a ordem do <b>manifest</b></p>
+			<p><i>package</i>, <i>file</i> e <i>service</i> são <b>resources</b></p>
 			<aside class="notes">
 			</aside>
 			</section>
@@ -456,20 +495,32 @@ service { 'sshd':
 			<section>
 			<h3>Ansible</h3>
 			<pre><code data-trim>
-- name: install the latest version of openssh-server
-  package: name=openssh-server state=present
-
-- name: place our sshd_config
-  template:
-    src: /mytemplates/sshd_config.j2
-    dest: /etc/ssh/sshd_config
-    owner: root
-    group: root
-    mode: 0644
-
-- service: name=ssh state=started
+- hosts: all
+  name: Install SSH Server
+  tasks:
+  - package: name=openssh-server state=present
+  - template:
+      src: sshd_config
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+    - restart ssh
+  - service: name=ssh state=started
+  handlers:
+  - name: restart ssh
+    service: name=ssh state=restarted
 			</code></pre>
+			<p>Não me ajuda na tese de simplicidade, eu sei</p>
+			<p><i>Install SSH Server</i> é uma <b>play</b>, aplicada em <i>all</i> hosts
+			<p><i>package</i> (<b>new</b> in 2.0), <i>template</i> e <i>service</i> são <b>modules</b></p>
 			<aside class="notes">
+			<p>Simples?</p>
+			<p>YAML: "é só dados", "não é uma linguagem de programação". Sei, como se isso ajudasse neste caso.</p>
+			<p>Mas tem a vantagem de ser mais facilmente consumível programaticamente.</p>
+			<p>Note o <i>handler</i> separado.</p>
+			<p>Cada task pode ter um name. Mas é opcional.</p>
 			</aside>
 			</section>
 
@@ -480,21 +531,21 @@ openssh-server:
   pkg.installed:
     - name: openssh-server
   service.running:
-    - name: sshd
+    - name: ssh
     - enable: True
-    - require:
-      - pkg: openssh-server
 
   file.managed:
     - name: /etc/ssh/sshd_config
-    - source: salt://ssh/sshd_config
+    - source: salt://sshd_config
     - user: root
     - group: root
-    - mode: 640
+    - mode: 644
     - watch_in:
       - service: openssh-server
 			</code></pre>
+			<p>Esta é uma <b>formula</b>, <i>pkg.installed</i>, <i>service.running</i> e <i>file.managed</i> descrevem <b>states</b> dentro da fórmula.</p>
 			<aside class="notes">
+				<p>State functions vs Execution functions?</p>
 			</aside>
 			</section>
 		</section>
@@ -524,7 +575,7 @@ $binaries.each |String $binary| {
 			</code></pre>
 			<p>Requer puppet 4.x ou parser=future</p>
 			<p>each, slice, filter, map, e <a href="https://docs.puppetlabs.com/puppet/4.4/reference/lang_iteration.html">mais</a></p>
-		       	<aside class="notes">
+			<aside class="notes">
 				<p>No puppet 3.x o <i>workaround</i> é defined types + resource-title-arrays, muito mais trabalhoso e limitado.</p>
 			</aside>
 			</section>
@@ -545,8 +596,8 @@ $binaries.each |String $binary| {
       - foo
 			</code></pre>
 				<p>with_dict, with_nested, with_fileglobs, e <a href=http://docs.ansible.com/ansible/playbooks_loops.html">mais...</a></p>
-				<p><a href="https://support.ansible.com/hc/en-us/articles/201957837-How-do-I-split-an-action-into-a-multi-line-format-">outros jeitos</a> de quebrar ... &gt;
-			        <p>... linhas</p>
+				<p><a href="https://support.ansible.com/hc/en-us/articles/201957837-How-do-I-split-an-action-into-a-multi-line-format-">outros jeitos</a> de quebrar ... &gt;</p>
+				<p>... linhas</p>
 				<p>Aproveitando: Idempotência?</p>
 			<aside class="notes">
 			<p>Idempotência: uma bandeira do Puppet. Ele é provavelmente o melhor dos 3 nisso, mas não é como se os outros ignorassem esse conceito.</p>
@@ -571,15 +622,6 @@ $binaries.each |String $binary| {
 			</section>
 		</section>
 
-		<!--
-
-		Slide tabela glossário?
-		
-		Outros exemplos: file serving, puppet e ansible (caso da pergunta no telegram).
-		Puppet é simples depois que tu tá firme nos módulos, mas no início, o cara mal
-		sabe o que é uma classe ou módulo.
-
-		-->
 
 		<section>
 			<h2>"Baterias" internas e externas</h2>
@@ -591,8 +633,8 @@ $binaries.each |String $binary| {
 			<p>E o <b>Salt</b> sendo o Salt: temos <a href="https://docs.saltstack.com/en/latest/ref/modules/all/index.html">execution</a> modules, <a href="https://docs.saltstack.com/en/latest/ref/states/all/index.html">state</a> modules, e <a href="https://cse.google.com/cse?cx=004624818632696854117:yfmprrbw3pk&q=Full%20list%20modules#gsc.tab=0&gsc.q=Full%20list%20modules&gsc.page=1">mais</a>. Tem de tudo no <a href="https://github.com/saltstack/salt-contrib">salt-contrib</a>, e agora no <a href="http://saltstarters.org/">SaltStarters</a>.</p>
 			<aside class="notes">
 				Figuras?
-    				Salt e Ansible são mais batteries included
-    				Lista de módulos incluídos Salt e Ansible.
+				Salt e Ansible são mais batteries included
+				Lista de módulos incluídos Salt e Ansible.
 			</aside>
 		</section>
 
@@ -646,7 +688,7 @@ $binaries.each |String $binary| {
 			<hr/>
 			<p><b>Salt</b> ... em inglês: #salt, <a href="https://groups.google.com/forum/#!forum/salt-users">lista</a>. E no Brasil nada...</p>
 			<aside class="notes">
-    				Receptividade de fixes das comunidades?
+				Receptividade de fixes das comunidades?
 			</aside>
 		</section>
 
@@ -663,6 +705,11 @@ $binaries.each |String $binary| {
 			<p><a href="https://github.com/dgmorales/vagrant-cfgmgmt-sandbox">https://github.com/dgmorales/vagrant-cfgmgmt-sandbox</a></p>
 
 			<aside class="notes">
+				<p>Puppet é o que tem mais classe, é o mais "bonito". Adoro a DSL, acho que é o código mais fácil de ler. E o forge é algo insanamente útil (e mais útil que as alternativas dos outros dois).</p>
+
+				<p>Mas a simplicidade do Ansible tem um valor imenso. É muito mais fácil de começar do que os outros: não subestime o valor disso para muitos ambientes.</p>
+
+				<p>E o por fim a flexibilidade do Salt é sedutora também. Ele faz o que você quer, do jeito que você quiser. Eu vou lendo aquela documentação louca e descobrindo mais e mais coisas interessantes.</p>
 			</aside>
 		</section>
 
@@ -674,10 +721,10 @@ $binaries.each |String $binary| {
 			<br/>
 			<small>
 			<img src="images/mail3.png" border="0" style="border:none;vertical-align:middle;" />
-			<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a> 
+			<a href="mailto:morales@propus.com.br" style="vertical-align:middle;">morales@propus.com.br</a>
 			&nbsp;
-			<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" /> 
-			<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a> 
+			<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
+			<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
 			</small>
 			</p>
 			<br/>
@@ -688,6 +735,12 @@ $binaries.each |String $binary| {
 			</p>
 			<br/>
 		</section>
+
+		<!--
+
+		Cena pós créditos: Slide tabela glossário? Muitos links
+
+		-->
 
 
 			</div>
