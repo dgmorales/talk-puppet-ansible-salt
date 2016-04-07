@@ -58,37 +58,15 @@
 						</small>
 					</p>
 					<aside class="notes">
-					<p>
-					Boa noite, galera. Meu nome é Diego Morales. Eu sou um
-					sysadmin já há muitos anos, mais de 15, apesar dessa
-					minha cara de guri... Trabalho em uma empresa chamada
-					Propus, que presta serviços de infraestrutura de TI e
-					de BigData e NoSQL.
+					<p>Meu nome é Diego Morales. Sysadmin há 15+ anos.  Trabalho na Propus, que presta serviços de infraestrutura de TI e de BigData e NoSQL.  </p>
 
-					Eu estava n último encontro DevOps lá na Cinelândia, e
-					se comentou lá sobre um interesse de termos palestras
-					comparando algumas das muitas ferramentas desse mundo
-					DevOps.
+					<p>Origem da palestra</p>
 
-					Eu depois conversei com o Stefan e o Luiz, propondo
-					essa palestra aqui. Eu já uso bastante puppet há alguns
-					anos, tenho usado cada vez mais ansible, e também já
-					investiguei muito o salt, para avaliar o que era melhor
-					para o meu ambiente.
+					<p>Meu histórico as ferramentas</p>
 
-					Mas eu não me considero expert em nenhuma delas, talvez
-					nem no Puppet até, e eu acho que um potencial
-					interessante que a gente tem aqui é vocês trazerem
-					também a experiência e a visão de vocês, apesar do
-					nosso tempo que pode ficar apertado ...
+					<p>Então, quem aí usa? Puppet?  Ansible?  Salt? </p>
 
-					Então, para termos uma noção.... quem aí usa:
-
-					Puppet?
-					Ansible?
-					Salt?
-
-					</p>
+					<p>Vai ser interessante ter a visão e a experiência de vocês. Mas o tempo vai ser apertado.</p>
 					</aside>
 				</section>
 
@@ -101,33 +79,24 @@
 						<li>Arquitetura básica de cada um</li>
 						<li>Pagando ...</li>
 						<li>... e não pagando</li>
-						<li>Show me the code</li>
-						<li>Comunidade e Documentação</li>
+						<li>Show me the code!</li>
+						<li>Repositórios de receitas</li>
+						<li>Documentação e Comunidade</li>
 				</ol>
 				<br/>
-				<br/>
-				<p>Online: <a href="http://dgmorales.info/cm-pas">http://dgmorales.info/cm-pas</a></>
+				<p>Online: <a href="http://dgmorales.info/cm-pas">http://dgmorales.info/cm-pas</a></p>
+				<p>Pressione S para <i>Speaker's Notes</i></p>
 				<aside class="notes">
-				<p>
-					A proposta aqui não é fácil. São 3 ferramentas
-					poderosas, cada uma certamente precisa de uma palestra
-					inteira ou mais para ser devidamente apresentada, então
-					eu tive que escolher e limitar os assuntos para dar
-					tempo.
-
-					Então vamos fazer assim: eu vou direto ao ponto, o
-					ritmo vai ser um pouco acelerado, mas vocês fiquem 100%
-					à vontade de interromper para perguntar ou acrescentar
-					algo, e eu vou ficar 100% à vontade de dizer "vamos
-					guardar isso para o final, se der tempo?"
-
-					blz? Vambora então
+				<p>A proposta aqui não é fácil. Cada uma certamente precisa de uma palestra inteira ou mais para ser devidamente apresentada.</p>
+				<p>Objetivo: apresentar o mínimo básico sobre cada ferramenta e sobre o "ecossistema" de cada uma, e dar caminhos para vocês conhecerem mais.</p>
+				<p>Vou direto ao ponto, fiquem à vontade de interromper para perguntar ou acrescentar e eu à vontade de dizer guardar para depois a discussão.</p>
 				</p>
 			</aside>
 		</section>
 
 		<section>
 			<h2>Config Management</h2>
+			<br/>
 			&nbsp; &nbsp;
 			<a href="http://www.puppetlabs.com/"><img src="images/puppet-labs.png"/ width="280" style="border:0;"></a>
 			&nbsp; &nbsp;
@@ -135,6 +104,7 @@
 			&nbsp; &nbsp;
 			<a href="http://saltstack.com/"><img src="images/SaltStack.png"/ width="320" style="border:0;"></a>
 			<br/>
+			<hr>
 			<br/>
 			<a href="http://www.opscode.com/chef"><img src="images/logo-chef.png" width="150" style="border:0;"/></a>
 			&nbsp; &nbsp;
@@ -142,43 +112,16 @@
 				width="280" style="border:0;"/></a>
 			<aside class="notes">
 
-			<p>
-			Bom, acho que todo mundo aqui sabe do que essas ferramentas
-			tratam. São ferramentas de gerência de configuração,
-			infraestrutura como código: elas me permitem descrever em
-			código a configuração dos meus servidores, da minha nuvem, e me
-			dá vários meios de aplicá-las. E assim eu posso versionar esse
-			código, testar, documentar, etc.
+			<p>Ferramentas de gerência de configuração, infraestrutura como código.</p>
 
-			E aí vem uma questão bem básica: elas são concorrentes ou
-			complementares?
+			<p>Concorrentes ou complementares? Há controvérsias.</p>
 
-			Há controvérsias. O puppet e o ansible, por exemplo, são
-			frequentemente considerados complementares, e certamente podem
-			ser usados dessa forma. O Guto Carvalho e o Miguel da Instruct,
-			por exemplo, que são as principais referências de puppet no
-			brasil, consideram que eles praticamente não tem nada a ver um
-			com o outro.
+			<p>Minha visão: concorrentes. Os diferentes focos e abordagens diferentes formam um espectro, puppet e
+			ansible nos extremos, salt buscando tudo. Chuto que o crescimento de cada um vai agravar a concorrência.</p>
 
-			Eu respeitosamente discordo. Os diferentes focos e abordagens
-			de configuration managemente formam um espectro, puppet e
-			ansible nos extremos, salt buscando tudo. Todos eles me parecem
-			eventualmente querer alcançar tudo, invadindo aos poucos os
-			espaços dominados por outros. Isso vai ficar mais claro ao
-			longo do nosso papo.</p>
+			<p>4 principais players + o pai de todos, cfengine.</p>
 
-			<p>
-			Os principais players desse mercado são esses 4: Puppet,
-			Ansible, Salt e Chef. Com uma menção honrosa para o cfengine,
-			que é o pai de todos, muito mais antigo, mais complexo, e ainda
-			é utilizado em ambientes gigantes e extremamente complexos.
-
-			E o Chef? Quando eu comecei isso, resolvi tirar ele dos meus
-			estudos. Na minha análise um pouco superficial, ele é
-			razoavelmente parecido com o Puppet, mas um pouco mais
-			complexo, na arquitetura, nos componentes, e é um tanto
-			atrelado ao ruby ...
-			</p>/
+			<p>Deixei o Chef de fora. Ele é muito popular. Deve ser ótimo. Achei "muito parecido" com puppet (até mais complexo) e eu apostei no Puppet.</p>
 
 			</aside>
 		</section>
@@ -190,6 +133,8 @@
 		<p>Ansible: &nbsp; <b>Simplicidade</b></p>
 		<p>Salt: &nbsp; <b>Flexibilidade</b></p>
 		<aside class="notes">
+			<p>Se eu tivesse que dizer só uma palavra sobre cada um...</p>
+			<p>Descobri fazendo essa palestra que eles mesmos se descrevem assim (ansible e salt, ao menos).</p>
 		</aside>
 		</section>
 
@@ -210,8 +155,8 @@
 				</div>
 
 				<aside class="notes">
-				Vamos apresentar um básico, mas vamos passar rápido isso aqui.
-					O Puppet foi criado...
+					<p>Bem velhinho já, mais que o Chef até. Cfgengine nasceu em 93, though.</p>
+					<p>Alguns clientes...</p>
 
 				</aside>
 			</section>
@@ -219,7 +164,6 @@
 			<section>
 				<img src="images/puppet-architecture.svg"/ style="border:0;">
 				<aside class="notes">
-
 				</aside>
 			</section>
 
@@ -281,7 +225,7 @@
 					<p>Puppet Explorer: meu atual favorito.</p>
 					<p>Puppet Dashboard é mais velho. Abandonado? Há dúvidas...</p>
 					<p>Foreman: ainda não suporta o Puppet 4. Projeto maior, mais abrangente.</p>
-					<p>PCP do Guto Carvalho e Miguel Di Ciurcio Filho da Instruct. Inclui Server, PuppetDB, Explorer e Mcollective.</p>
+					<p>PCP do Guto Carvalho e Miguel Di Ciurcio Filho da Instruct, com ajuda de outros da comunidade puppet Brasil. Inclui Server, PuppetDB, Explorer e Mcollective.</p>
 				</aside>
 			</section>
 		</section>
@@ -292,7 +236,7 @@
 				<h2>Ansible & <strike>Ansible Inc.</strike> RedHat</h2>
 				<br/>
 				<p><i>"Ansible’s <a href="http://docs.ansible.com/ansible/index.html">main goals</a> are simplicity and ease-of-use."</i></p>
-				<p>Criado em 2012, por Michael DeHaan, bebendo muito do Puppet.</p>
+				<p>Criado em 2012, por Michael DeHaan.</p>
 				<div style="vertical-align:middle;background-color:black;">
 				<img src="images/ansible-users/evernote.png"/ style="border:0;background-color:black;">
 				<img src="images/ansible-users/twitter.png"/ style="border:0;background-color:black;">
@@ -307,6 +251,7 @@
 				<aside class="notes">
 					<p>Recentemente adquirido pela RedHat.</p>
 					<p>Michael DeHaan se afastou, e parece bem afastado.</p>
+					<p>Alguns clientes...</p>
 				</aside>
 			</section>
 
@@ -344,6 +289,9 @@
 					<li> ... e agora <i>System Tracking</i> também.</li>
 					<li>3 <a href="https://www.ansible.com/tower-features">variantes</a>, US$ ~ <a href="https://www.ansible.com/pricing">50-140</a>/node/ano.</li>
 				</ul>
+				<aside class="notes">
+				<p>Pode até não ser tão bom quanto o Puppet Enterprise, mas parece muito interessante.</p>
+				</aside>
 			</section>
 
 			<section>
@@ -355,6 +303,11 @@
 					<ul><li>(não, não é o SemaphoreCI)</li></ul>
 					<li><a href="http://theforeman.org/">Foreman</a> de novo.</li>
 				</ul>
+				<aside class="notes">
+				<p>Rundeck já é uma ferramenta de execução remota (SSH, plugin pra salt e outros tb), mas focada na usabilidade pela web, controle de acesso e auditoria/logging.</p>
+				<p>Casam muito bem</p>
+				<p>Semaphore: único projeto público específico para ansible que eu ouvi falar até agora.</p>
+				</aside>
 			</section>
 
 		</section>
@@ -375,6 +328,7 @@
 				<br/>
 				</div>
 			<aside class="notes">
+					<p>Alguns clientes...</p>
 			</aside>
 			</section>
 
@@ -399,14 +353,14 @@
 					<li>Auth/Crypto: meio problemático.</li>
 					<ul>
 						<li>ZeroMQ não tem SSL. Salt adiciona AES em cima.</li>
-						<li><a href="https://groups.google.com/forum/#!topic/salt-users/nh8MqRiHVt4"><i>partly cooked at home and partly based on deprecated libraries</i></a></li>
+						<li>Novos transportes no forno: <a href="https://docs.saltstack.com/en/latest/topics/transports/raet/index.html">RAET</a>, outro TCP usando <a href="https://docs.saltstack.com/en/latest/topics/releases/2015.8.0.html#tornado-tcp-transport">Tornado</a>.</p>
 					</ul>
 				</ul>
 			<aside class="notes">
 				<p>É o mais rápido.</p>
 				<p>Segurança é uma preocupação. Rodar salt na internet não parece uma boa. E não suporta CA externas</p>
 
-				<p>"Salt crypto is partly cooked at home and partly based on deprecated libraries, and there have been issues in the past." Estão fazendo um novo transporte. Feito em casa, inclusive a crypto. Projeto que será aberto e independente.</p>
+				<p>"Salt crypto is partly ... " Estão explorando novos transportes. RAET Feito em casa, inclusive a crypto. Projeto que será aberto e independente. O novo com tornado está sendo feito no LinkedIn.</p>
 
 				<p>Salt-SSH é outra história</p>
 				<ul>
@@ -425,9 +379,15 @@
 				<p style="font-size:100px;">?</p>
 				<br/>
 				<ul>
-					<li>Novato: ainda em um <i>early adopter program</i>.</li>
+					<li>Novato: 4.0 em <i>early adopter program</i>. 4.5 a ser lançado</li>
 					<li>Sem pricing divulgado.</li>
+					<li>SaltConf16 começa dia 19/4, deve ter novidades.</li>
 				</ul>
+			<aside class="notes">
+				<p>Agora tem uma interface GUI. Antes era só suporte.</p>
+				<p>Tudo muito escondido ainda.</p>
+			</aside>
+
 			</section>
 
 			<section>
@@ -440,19 +400,16 @@
 					<li>Adivinha: <a href="http://theforeman.org/">Foreman</a> também.</li>
 					<li><a href="https://github.com/saltstack/halite">Halite</a>: abandonado.</li>
 				</ul>
-				</ul>
 			</section>
+			<aside class="notes">
+				<p>Saltpad tem uma fama de ter seus problemas. Tudo meio alpha.</p>
+			</aside>
 		</section>
 
-		<section>
-		<h2>Show me the code!</h2>
+		<section data-background="images/showmethecode.jpg">
 		<aside class="notes">
-
-		Puppet: DSL, módulos, classes, manifestos, hiera, ENC, roles and profiles (?). Muitos avanços no Puppet 4 (loops, etc)
-
-		Ansible: Inventário (dinâmicos tb), YAML, roles, variáveis de grupos e hosts
-
-		Salt: Pillars and ?, States e etc.
+			<p>Slide com Meme gif: check!</p>
+			<p>Ufa.</p>
 		</aside>
 		</section>
 
@@ -462,7 +419,7 @@
 			<h2>Package, File, Service</h2>
 			<br/>
 			<br/>
-			<p>Se fosse possível fazer apenas isso, já seria possível fazer muita coisa.</p>
+			<p>Se fosse possível fazer apenas isso, já seria muita coisa.</p>
 
 			</section>
 			<section>
@@ -489,6 +446,7 @@ service { 'ssh':
 			<p>O require não é mais necessário no 4.x, ele segue a ordem do <b>manifest</b></p>
 			<p><i>package</i>, <i>file</i> e <i>service</i> são <b>resources</b></p>
 			<aside class="notes">
+				<p>Limpo e organizado, não?</p>
 			</aside>
 			</section>
 
@@ -545,7 +503,7 @@ openssh-server:
 			</code></pre>
 			<p>Esta é uma <b>formula</b>, <i>pkg.installed</i>, <i>service.running</i> e <i>file.managed</i> descrevem <b>states</b> dentro da fórmula.</p>
 			<aside class="notes">
-				<p>State functions vs Execution functions?</p>
+				<p>State functions vs Execution functions</p>
 			</aside>
 			</section>
 		</section>
@@ -618,6 +576,7 @@ $binaries.each |String $binary| {
 			<p>Programe o seu código. Pode ser bom, pode ser ruim.</p>
 			<p>Usado por tudo, inclusive pillar (definição condicional de variáveis).</p>
 			<aside class="notes">
+				<p>Já vi cara reclamando muito disso tender a gerar bugs difíceis de debugar no seu código. Mensagens de erro péssimas.</p>
 			</aside>
 			</section>
 		</section>
@@ -632,9 +591,6 @@ $binaries.each |String $binary| {
 			<hr/>
 			<p>E o <b>Salt</b> sendo o Salt: temos <a href="https://docs.saltstack.com/en/latest/ref/modules/all/index.html">execution</a> modules, <a href="https://docs.saltstack.com/en/latest/ref/states/all/index.html">state</a> modules, e <a href="https://cse.google.com/cse?cx=004624818632696854117:yfmprrbw3pk&q=Full%20list%20modules#gsc.tab=0&gsc.q=Full%20list%20modules&gsc.page=1">mais</a>. Tem de tudo no <a href="https://github.com/saltstack/salt-contrib">salt-contrib</a>, e agora no <a href="http://saltstarters.org/">SaltStarters</a>.</p>
 			<aside class="notes">
-				Figuras?
-				Salt e Ansible são mais batteries included
-				Lista de módulos incluídos Salt e Ansible.
 			</aside>
 		</section>
 
@@ -671,11 +627,14 @@ $binaries.each |String $binary| {
 			<h3>Salt &nbsp;&nbsp; /o\</h3>
 			<img src="images/docs-joke-salt2.png" style="border:0;" height="400"/>
 			<ul class="fragment">
-				<li>Uma floresta: vasta, linda, horrível, confusa, perigosa.</a></li>
+				<li>Uma floresta: vasta, linda, confusa, por vezes traiçoeira.</a></li>
 				<li><a href="https://docs.saltstack.com/en/latest/">https://docs.saltstack.com/en/latest/</a></li>
 				<li>Um oásis de ordem e amigabilidade: <i><a href="https://docs.saltstack.com/en/getstarted/">Getting Started</a></i></li>
 			</ul>
 			</section>
+			<aside class="notes">
+				<p>Como referência é bem interessante. Como tutorial, era ruim, mas essa nova linha do getting started tá resolvendo isso.</p>
+			</aside>
 		</section>
 
 		<section>
@@ -686,9 +645,9 @@ $binaries.each |String $binary| {
 			<hr/>
 			<p><b>Ansible</b>... em inglês: #ansible, <a href="https://groups.google.com/forum/#!forum/ansible-project">lista</a>. Meetups BR parados: <a href="http://www.meetup.com/pt-BR/Ansible-Sao-Paulo/">SP</a> e <a href="http://www.meetup.com/pt-BR/Ansible-Rio-de-Janeiro/">RJ</a>.</p>
 			<hr/>
-			<p><b>Salt</b> ... em inglês: #salt, <a href="https://groups.google.com/forum/#!forum/salt-users">lista</a>. E no Brasil nada...</p>
+			<p><b>Salt</b> ... em inglês: #salt, <a href="https://groups.google.com/forum/#!forum/salt-users">lista</a>. Comunidade muito forte, campeão em contribuidores (1500+). No Brasil, nada...</p>
 			<aside class="notes">
-				Receptividade de fixes das comunidades?
+				<p>Receptividade de fixes das comunidades: salt é mais permissivo e aberto. Ansible mais cuidadoso e limitador.</p>
 			</aside>
 		</section>
 
@@ -709,7 +668,7 @@ $binaries.each |String $binary| {
 
 				<p>Mas a simplicidade do Ansible tem um valor imenso. É muito mais fácil de começar do que os outros: não subestime o valor disso para muitos ambientes.</p>
 
-				<p>E o por fim a flexibilidade do Salt é sedutora também. Ele faz o que você quer, do jeito que você quiser. Eu vou lendo aquela documentação louca e descobrindo mais e mais coisas interessantes.</p>
+				<p>E a flexibilidade do Salt é sedutora também. Ele faz o que você quer, do jeito que você quiser. Eu vou lendo aquela documentação e vendo videos e descobrindo mais e mais coisas interessantes. Até um <b>Reactor system</b> para responder a eventos no ambiente.</p>
 			</aside>
 		</section>
 
@@ -725,14 +684,20 @@ $binaries.each |String $binary| {
 			&nbsp;
 			<img src="images/twitter-bird-white-on-blue.png" height="24" width="24" border="0" style="border:none;vertical-align:middle;" />
 			<a href="http://twitter.com/dgmorales" style="vertical-align:middle;">@dgmorales</a>
+			<br/>
+			<img src="images/wordpress.png" height="32" width="32" border="0" style="border:none;vertical-align:middle;"/>
+			<a href="http://doauto.wordpress.com" style="vertical-align:middle;">Do, Automate, Repeat: http://doauto.wordpress.com</a>
 			</small>
 			</p>
 			<br/>
-			<p>Slides: <a href="http://dgmorales.info/cm-pas">http://dgmorales.info/cm-pas</a></>
-			<p>
+			<p>Slides: <a href="http://dgmorales.info/cm-pas">http://dgmorales.info/cm-pas</a></p>
+			<p>Github repo: em breve mais.</p>
+			<p><a href="https://github.com/dgmorales/vagrant-cfgmgmt-sandbox">https://github.com/dgmorales/vagrant-cfgmgmt-sandbox</a></p>
+<!--			<p>
 			Blog: <i>Do, Automate, Repeat</i> &nbsp; <a
 				href="http://doauto.wordpress.com">http://doauto.wordpress.com</a>
 			</p>
+-->
 			<br/>
 		</section>
 
@@ -741,8 +706,23 @@ $binaries.each |String $binary| {
 		Cena pós créditos: Slide tabela glossário? Muitos links
 
 		-->
-
-
+		<section>
+			<h2>Cena &nbsp;pós-creditos!</h2>
+			<h4>Terminologia</h4>
+			<small>
+			<table>
+				<tr><th></th><th>Puppet</th><th>Ansible</th><th>Salt</th></tr>
+				<tr><th>Server</th><td>Puppet (<i>old</i> <a href="https://docs.puppetlabs.com/puppet/4.4/reference/services_master_rack.html">Master</a>|<a href="https://docs.puppetlabs.com/puppetserver/2.3/services_master_puppetserver.html">Server</a>)</td><td>Control Machine</td><td>Master</td></tr>
+				<tr><th>Agente</th><td>Puppet Agent</td><td> - </td><td>Salt Minion</td></tr>
+				<tr><th>Receita</th><td>Manifest</td><td><a href="http://docs.ansible.com/ansible/playbooks.html">Playbook</a></td><td>SLS (State) file</td></tr>
+				<tr><th>Tipo/Objeto</th><td><a href="https://docs.puppetlabs.com/puppet/latest/reference/lang_summary.html#resources-classes-and-nodes">Resource</a>/<a href="https://docs.puppetlabs.com/puppet/latest/reference/lang_classes.html">Class</a>/<a href="https://docs.puppetlabs.com/puppet/4.4/reference/lang_defined_types.html">Defined Type</a></td><td><a href="http://docs.ansible.com/ansible/modules.html">Module</a></td><td><a href="https://docs.saltstack.com/en/getstarted/fundamentals/states.html">State</td></tr>
+					<tr><th>Componente</th><td><a href="https://docs.puppetlabs.com/puppet/latest/reference/modules_fundamentals.html">Module</a></td><td><a href="http://docs.ansible.com/ansible/playbooks_roles.html#embedding-modules-in-roles">Role</a></td><td><a href="https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html">Formula</a></td></tr>
+					<tr><th>Repo Componentes</th><td><a href="https://forge.puppetlabs.com/">Forge</a></td><td><a href="https://galaxy.ansible.com/">Galaxy</a></td><td><a href="https://github.com/saltstack/salt-contrib">Contrib</a>/<a href="http://saltstarters.org/">SaltStarters</a></td></tr>
+				<tr><th>Variáveis</th><td><a href="https://docs.puppetlabs.com/hiera/3.1/">Hiera</a></td><td><a href="http://docs.ansible.com/ansible/playbooks_variables.html">Variables</a></td><td><a href="https://docs.saltstack.com/en/getstarted/config/pillar.html">Pillar</a></td></tr>
+				<tr><th>Fatos</th><td>Facts/<a href="https://puppetlabs.com/facter">Facter</a></td><td>Facts/<a href="http://docs.ansible.com/ansible/setup_module.html">Setup</a></td><td><a href="https://docs.saltstack.com/en/latest/topics/targeting/grains.html">Grains</a></td></tr>
+				<tr><td><b>Secrets Storage</b></td><td><a href="https://github.com/TomPoulton/hiera-eyaml">Hiera eyaml</a></td><td><a href="http://docs.ansible.com/ansible/playbooks_vault.html">Vault</a></td><td><a href="https://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html">salt.renderers.gpg</a></td></tr>
+			</table>
+			<small>
 			</div>
 
 		</div>
@@ -759,6 +739,7 @@ $binaries.each |String $binary| {
 				progress: true,
 				history: true,
 				center: true,
+				slideNumber: false,
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
