@@ -73,8 +73,8 @@
 
 				<section>
 				<h2>O que vem por aí</h2>
-				<br/>
 				<ol>
+						<li>Por quê?</li>
 						<li>Quem são, e o cenário geral de <i>configuration management</i>.</li>
 						<li>Arquitetura básica de cada um</li>
 						<li>Pagando ...</li>
@@ -83,14 +83,80 @@
 						<li>Repositórios de receitas</li>
 						<li>Documentação e Comunidade</li>
 				</ol>
-				<br/>
 				<p>Online: <a href="http://dgmorales.info/talks/cm-pas">http://dgmorales.info/talks/cm-pas</a></p>
-				<p>Pressione S para <i>Speaker's Notes</i></p>
+				<small><p>Pressione S para <i>Speaker's Notes</i></p></small>
 				<aside class="notes">
 				<p>A proposta aqui não é fácil. Cada uma certamente precisa de uma palestra inteira ou mais para ser devidamente apresentada.</p>
 				<p>Objetivo: apresentar o mínimo básico sobre cada ferramenta e sobre o "ecossistema" de cada uma, e dar caminhos para vocês conhecerem mais.</p>
 				<p>Vou direto ao ponto, fiquem à vontade de interromper para perguntar ou acrescentar e eu à vontade de dizer guardar para depois a discussão.</p>
   			</aside>
+		</section>
+
+		<section>
+		<section>
+			<h2>Por quê?</h2>
+			<br/>
+			<p><b>Infraestrutura como código</b></p>
+			<br/>
+			<img src="images/infraascode.png" width="800" style="border:0;">
+
+  		<aside class="notes">
+				<p>Antes de prosseguir, vamos ao porquê.</p>
+				<p>Para quem tem um zilhão de servidores iguais, ou só muitos, nem precisa discutir.</p>
+				<p>Mas para quem tem um bando de servidores diferentes, também é útil!</p>
+				<p>Eu não vou falar muito sobre isso, só 2 ideias que eu acho importantes:</p>
+				<p>É para todos nós</p>
+				<p>Automatizar não é só a respeito de velocidade</p>
+  		</aside>
+		</section>
+
+		<section>
+			<h2>É para todos</h2>
+			<p>Exemplo: um <i>base system</i></p>
+			<ul>
+				<li>Repositórios de pacotes (mirrors/proxy)</li>
+				<li>Resolver DNS, cliente NTP</li>
+				<li>Usuários, integração LDAP/AD</li>
+				<li>Agente de monitoramento, SNMP</li>
+				<li>Backup (agente, etc)</li>
+				<li>Regras gerais de FW</li>
+				<li>Config de envio de emails</li>
+				<li>Logs: rotação, servidor central</li>
+			</ul>
+
+			<p>Ahh ... mas eu tenho uma imagem, preseed/kickstart, script, documentação ...</p>
+
+  		<aside class="notes">
+				<p>Um dos meus maiores ganhos com o Puppet.</p>
+				<p>Ok, você já tem uma imagem pronta, um preseed/kickstart, um script ... ótimo, excelente. Isso já é infra as code! Então você pode gostar destes caras.</p>
+				<ul>
+					<li>Pode ser mais fácil de atualizar que a imagem.</li>
+					<li>Só no preseed/kickstart fica mais difícil. </li>
+					<li>Não precisa refazer o servidor (infra imutável é outro papo)</li>
+					<li>Scripts ... gconf é a evolução dos scripts, dê uma chance</li>
+				</ul>
+				<p>Meu caso: preseed simples + base system em Puppet.</p>
+				<p>Tá na era da documentação ainda? Vamos ao próximo slide</p>
+  		</aside>
+		</section>
+
+		<section>
+			<h2>Não é só velocidade e escala</h2>
+			<p>É <b>documentação executável</b>. Permite ...</p>
+			<ul>
+				<li>... consistência na implementação</p>
+				<li>... preservar e evoluir conhecimentos</p>
+				<li>... versionamento</p>
+				<li>... revisão pelos pares</p>
+				<li>... testes repetíveis, e até automatizados</p>
+				<li>... uma gerência de mudanças que faz sentido</p>
+			</ul>
+
+  		<aside class="notes">
+      <p>O que antes era um serviço, um trabalho manual, algo dentro da cabeça de alguém ou, com sorte, esforço e MUITA disciplina, algo documentado de forma atualizada... agora é um código executável, que pode evoluir, ser revisado, etc.</p>
+			<p>Infra como código pode casar muito bem com ITIL, mas isso é outra palestra ...</p>
+  		</aside>
+		</section>
 		</section>
 
 		<section>
@@ -111,7 +177,7 @@
 				width="280" style="border:0;"/></a>
 			<aside class="notes">
 
-			<p>Ferramentas de gerência de configuração, infraestrutura como código.</p>
+			<p>Ferramentas de orquestração e gerência de configuração</p>
 
 			<p>Concorrentes ou complementares? Há controvérsias.</p>
 
@@ -120,7 +186,7 @@
 
 			<p>4 principais players + o pai de todos, cfengine.</p>
 
-			<p>Deixei o Chef de fora. Ele é muito popular. Deve ser ótimo. Achei "muito parecido" com puppet (até mais complexo) e eu apostei no Puppet.</p>
+			<p>Deixei o Chef de fora. Ele é muito popular. Muito mais que Salt e Ansible. Deve ser ótimo. Achei "muito parecido" com puppet (até mais complexo) e eu apostei no Puppet.</p>
 
 			</aside>
 		</section>
@@ -139,10 +205,10 @@
 
 		<section>
 			<section>
-				<h2>Puppet & Puppet<strike>Labs</strike></h2>
+				<h2>Puppet</h2>
 				<br/>
 				<p>Criado em 2005, por um sysadmin, Luke Kanies</p>
-				<p><b><i>Breaking News:</i></b> PuppetLabs &#8594; Puppet</p>
+				<p>Recentemente: PuppetLabs &#8594; Puppet</p>
 				<div style="vertical-align:middle;">
 				<img src="images/puppet-users/github_color.png" style="border:0;">
 				<img src="images/puppet-users/nasa_color.png" style="border:0;">
@@ -233,7 +299,7 @@
 		<section>
 
 			<section>
-				<h2>Ansible & <strike>Ansible Inc.</strike> RedHat</h2>
+				<h2>Ansible & RedHat</h2>
 				<br/>
 				<p><i>"Ansible’s <a href="http://docs.ansible.com/ansible/index.html">main goals</a> are simplicity and ease-of-use."</i></p>
 				<p>Criado em 2012, por Michael DeHaan.</p>
@@ -380,8 +446,7 @@
 				<br/>
 				<ul>
 					<li>Novato: 4.0 em <i>early adopter program</i>. 4.5 a ser lançado</li>
-					<li>Sem pricing divulgado.</li>
-					<li>SaltConf16 começa dia 19/4, deve ter novidades.</li>
+					<li>Sem pricing divulgado. É meio camuflado.</li>
 				</ul>
 			<aside class="notes">
 				<p>Agora tem uma interface GUI. Antes era só suporte.</p>
@@ -472,9 +537,9 @@ service { 'ssh':
 			</code></pre>
 			<p>Não me ajuda na tese de simplicidade, eu sei</p>
 			<p><i>Install SSH Server</i> é uma <b>play</b>, aplicada em <i>all</i> hosts
-			<p><i>package</i> (<b>new</b> in 2.0), <i>template</i> e <i>service</i> são <b>modules</b></p>
+			<p><i>package</i>, <i>template</i> e <i>service</i> são <b>modules</b></p>
 			<aside class="notes">
-			<p>Simples?</p>
+			<p>Simples? Muita gente acha muito mais simples que Puppet e Chef, mas tenho dúvidas.</p>
 			<p>YAML: "é só dados", "não é uma linguagem de programação". Sei, como se isso ajudasse neste caso.</p>
 			<p>Mas tem a vantagem de ser mais facilmente consumível programaticamente.</p>
 			<p>Note o <i>handler</i> separado.</p>
@@ -553,7 +618,7 @@ $binaries.each |String $binary| {
       - update
       - foo
 			</code></pre>
-				<p>with_dict, with_nested, with_fileglobs, e <a href=http://docs.ansible.com/ansible/playbooks_loops.html">mais...</a></p>
+				<p>with_dict, with_nested, with_fileglobs, e <a href="http://docs.ansible.com/ansible/playbooks_loops.html">mais...</a></p>
 				<p><a href="https://support.ansible.com/hc/en-us/articles/201957837-How-do-I-split-an-action-into-a-multi-line-format-">outros jeitos</a> de quebrar ... &gt;</p>
 				<p>... linhas</p>
 				<p>Aproveitando: Idempotência?</p>
@@ -639,11 +704,11 @@ $binaries.each |String $binary| {
 
 		<section>
 			<h2>Comunidade e Brasil</h2>
-			<br/>
 			<p><b>Puppet</b>, pacote completo: listas <a href="https://groups.google.com/forum/#!forum/puppet-users-br">br</a> e <a href="https://groups.google.com/forum/#!forum/puppet-users">en</a>, <a href="https://telegram.me/puppetbr">telegram</a>, IRC #puppet-br, #puppet, <a href="http://www.meetup.com/pt-BR/puppet-br/">meetup</a>. Empresa BR: <a href="http://instruct.com.br/">Instruct</a> e outras...</p>
-			<small><p><a href="https://telegram.me/puppetbr">https://telegram.me/puppetbr</p></a></small>
+			<p><a href="https://telegram.me/puppetbr">https://telegram.me/puppetbr</p></a>
 			<hr/>
-			<p><b>Ansible</b>... em inglês: #ansible, <a href="https://groups.google.com/forum/#!forum/ansible-project">lista</a>. Meetups BR parados: <a href="http://www.meetup.com/pt-BR/Ansible-Sao-Paulo/">SP</a> e <a href="http://www.meetup.com/pt-BR/Ansible-Rio-de-Janeiro/">RJ</a>.</p>
+			<p><b>Ansible</b> em inglês: #ansible, <a href="https://groups.google.com/forum/#!forum/ansible-project">lista</a>. Meetups BR parados: <a href="http://www.meetup.com/pt-BR/Ansible-Sao-Paulo/">SP</a> e <a href="http://www.meetup.com/pt-BR/Ansible-Rio-de-Janeiro/">RJ</a>. Lista BR?</p>
+			<p><a href="https://telegram.me/ansiblebr">https://telegram.me/ansiblebr</p></a>
 			<hr/>
 			<p><b>Salt</b> ... em inglês: #salt, <a href="https://groups.google.com/forum/#!forum/salt-users">lista</a>. Comunidade muito forte, campeão em contribuidores (1500+). No Brasil, nada...</p>
 			<aside class="notes">
@@ -660,8 +725,8 @@ $binaries.each |String $binary| {
 			<p>Peraí, e o Docker nisso tudo?</p>
 -->
 			<br/>
-			<p>Github repo: em breve mais.</p>
-			<p><a href="https://github.com/dgmorales/vagrant-cfgmgmt-sandbox">https://github.com/dgmorales/vagrant-cfgmgmt-sandbox</a></p>
+			<p>Github repo: exemplos de código nos 3, dashboards, etc.</p>
+			<p><a href="https://github.com/dgmorales/cm-sandbox">https://github.com/dgmorales/cm-sandbox</a></p>
 
 			<aside class="notes">
 				<p>Puppet é o que tem mais classe, é o mais "bonito". Adoro a DSL, acho que é o código mais fácil de ler. E o forge é algo insanamente útil (e mais útil que as alternativas dos outros dois).</p>
@@ -691,8 +756,8 @@ $binaries.each |String $binary| {
 			</p>
 			<br/>
 			<p>Slides: <a href="http://dgmorales.info/talks/cm-pas">http://dgmorales.info/talks/cm-pas</a></p>
-			<p>Github repo: em breve mais.</p>
-			<p><a href="https://github.com/dgmorales/vagrant-cfgmgmt-sandbox">https://github.com/dgmorales/vagrant-cfgmgmt-sandbox</a></p>
+			<p>Repo: <a href="https://github.com/dgmorales/cm-sandbox">https://github.com/dgmorales/cm-sandbox</a></p>
+			<p>Outra minha: <a href="http://dgmorales.info/talks/ansible-quick">http://dgmorales.info/talks/ansible-quick</a></p>
 <!--			<p>
 			Blog: <i>Do, Automate, Repeat</i> &nbsp; <a
 				href="http://doauto.wordpress.com">http://doauto.wordpress.com</a>
